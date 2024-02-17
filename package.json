@@ -1,0 +1,43 @@
+{
+  "name": "nest",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Extraction and analysis of Nest thermostat temperature heating cooling HVAC data",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "script.js",
+  "scripts": {
+    "build": "tsc",
+    "generate": "ts-node ./dist/generate.js",
+    "lint": "npm-run-all --continue-on-error --aggregate-output --parallel \"lint:*\"",
+    "lint:docs": "markdownlint \"**/*.md\"",
+    "lint:docs:fix": "npm run lint:docs -- --fix",
+    "lint:js": "eslint --cache .",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "lint:package-json": "npmPkgJsonLint .",
+    "lint:package-json-sorting": "sort-package-json --check",
+    "lint:package-json-sorting:fix": "sort-package-json package.json",
+    "lint:types": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\""
+  },
+  "dependencies": {
+    "json-2-csv": "^5.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^8.56.0",
+    "@types/node": "^20.11.19",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-unicorn": "^51.0.1",
+    "markdownlint-cli": "^0.39.0",
+    "npm-package-json-lint": "^7.1.0",
+    "npm-run-all": "^4.1.5",
+    "sort-package-json": "^2.7.0",
+    "typescript-eslint": "^7.0.1"
+  }
+}
