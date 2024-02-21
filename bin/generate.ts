@@ -89,7 +89,11 @@ function jsonSummaryToDailyHeatCorrectedForTimezone(json: NestSummary) {
       cycle.caption.parameters.startTime.replace("[UTC]", ""),
     );
     const day = startTime
-      .toLocaleString("en-us", { timeZone: process.env.TIMEZONE || Intl.DateTimeFormat().resolvedOptions().timeZone })
+      .toLocaleString("en-us", {
+        timeZone:
+          process.env.TIMEZONE ||
+          Intl.DateTimeFormat().resolvedOptions().timeZone,
+      })
       .split(",")[0];
     dayToDuration[day] = (dayToDuration[day] || 0) + duration;
   }
